@@ -40,8 +40,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String _password) {
+        this.password = _password;
     }
 
     public void setUsername(String username) {
