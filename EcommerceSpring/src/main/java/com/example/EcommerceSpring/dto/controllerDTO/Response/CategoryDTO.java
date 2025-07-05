@@ -1,4 +1,4 @@
-package com.example.EcommerceSpring.dto;
+package com.example.EcommerceSpring.dto.controllerDTO.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.example.EcommerceSpring.gateway;
 
-import com.example.EcommerceSpring.dto.CategoryDTO;
-import com.example.EcommerceSpring.dto.FakeStoreCategoryResponse;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.CategoryDTO;
+import com.example.EcommerceSpring.dto.gatewayDTO.Response.FakeStoreCategoryResponse;
 import com.example.EcommerceSpring.gateway.api.FakeStoreCategoryApi;
 import org.springframework.stereotype.Component;
 

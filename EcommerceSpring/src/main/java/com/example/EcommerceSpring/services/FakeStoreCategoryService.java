@@ -1,11 +1,10 @@
 package com.example.EcommerceSpring.services;
 
-import com.example.EcommerceSpring.dto.CategoryDTO;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.CategoryDTO;
 import com.example.EcommerceSpring.gateway.ICategoryGateway;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

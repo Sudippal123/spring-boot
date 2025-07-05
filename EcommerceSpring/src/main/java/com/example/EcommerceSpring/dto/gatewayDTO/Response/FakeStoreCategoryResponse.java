@@ -1,4 +1,4 @@
-package com.example.EcommerceSpring.dto;
+package com.example.EcommerceSpring.dto.gatewayDTO.Response;
 
 import lombok.Getter;
 
