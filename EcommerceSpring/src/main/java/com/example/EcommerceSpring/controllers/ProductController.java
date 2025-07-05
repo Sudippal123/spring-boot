@@ -1,12 +1,14 @@
 package com.example.EcommerceSpring.controllers;
 
-import com.example.EcommerceSpring.dto.ProductDTO;
-import com.example.EcommerceSpring.services.FakeStoreProductService;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.ProductDTO;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.CreateProductResponse;
+import com.example.EcommerceSpring.dto.controllerDTO.Resquest.CreateProductRequest;
 import com.example.EcommerceSpring.services.IProductService;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,5 +28,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public ProductDTO getProduct(@PathVariable("id") Long id) throws IOException {
         return this.productService.getProductById(id);
+    }
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CreateProductResponse> addProduct(@RequestBody CreateProductRequest product) throws IOException{
+
+        CreateProductResponse response = productService.addProduct(product);
+        return ResponseEntity.ok(response);
     }
 }

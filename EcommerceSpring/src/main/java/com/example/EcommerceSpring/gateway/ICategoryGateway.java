@@ -1,6 +1,6 @@
 package com.example.EcommerceSpring.gateway;
 
-import com.example.EcommerceSpring.dto.CategoryDTO;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.CategoryDTO;
 
 import java.io.IOException;
 import java.util.List;

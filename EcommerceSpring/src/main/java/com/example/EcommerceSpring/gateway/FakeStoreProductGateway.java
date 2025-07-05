@@ -1,10 +1,15 @@
 package com.example.EcommerceSpring.gateway;
 
-import com.example.EcommerceSpring.dto.FakeStoreProductByIdResponse;
-import com.example.EcommerceSpring.dto.FakeStoreProductsByCategoryResponse;
-import com.example.EcommerceSpring.dto.ProductDTO;
+import com.example.EcommerceSpring.dto.gatewayDTO.Response.FakeStoreProductByIdResponse;
+import com.example.EcommerceSpring.dto.gatewayDTO.Response.FakeStoreProductsByCategoryResponse;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.ProductDTO;
+import com.example.EcommerceSpring.dto.controllerDTO.Response.CreateProductResponse;
+import com.example.EcommerceSpring.dto.controllerDTO.Resquest.CreateProductRequest;
+import com.example.EcommerceSpring.dto.gatewayDTO.Request.FakeStoreCreateProductRequest;
+import com.example.EcommerceSpring.dto.gatewayDTO.Response.FakeStoreCreateProductResponse;
 import com.example.EcommerceSpring.gateway.api.FakeStoreProductApi;
 import org.springframework.stereotype.Component;
+import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,5 +43,23 @@ public class FakeStoreProductGateway implements IProductGateway {
                 .price(response.getProduct().getPrice())
                 .brand(response.getProduct().getBrand())
                 .model(response.getProduct().getModel()).build();
+    }
+
+    @Override
+    public CreateProductResponse createProduct(CreateProductRequest productRequest) throws IOException {
+
+        Response<FakeStoreCreateProductResponse> response = fakeStoreProductApi.createProduct(productRequest).execute();
+
+        if(response.isSuccessful() ){
+            return CreateProductResponse.builder()
+                    .product(response.body().getProduct())
+                    .status(response.body().getStatus())
+                    .message(response.body().getMessage()).build();
+        }
+        else {
+            System.out.println("API Error: " + response.errorBody().string());
+            return null;
+        }
+
     }
 }
